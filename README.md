@@ -57,6 +57,9 @@ project-generator/
 - **Errors in generated commands**: Review and edit using the interactive input prompt.
 - **Permission errors**: Run the script with appropriate permissions (`sudo` if necessary).
 
+## Sample results
+- **gemini voice bot in the folder was created by this generator , it took only one command to make it a voicebot.
+
 ## Contributing
 Feel free to fork this repository and submit pull requests to improve functionality.
 
