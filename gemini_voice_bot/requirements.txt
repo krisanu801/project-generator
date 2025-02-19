@@ -1,0 +1,7 @@
+google-generativeai
+SpeechRecognition
+PyQt5
+python-dotenv
+sounddevice
+numpy
+pyttsx3
