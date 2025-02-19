@@ -1,0 +1,351 @@
+2025-02-18 03:53:02,786 - INFO - Starting project generator
+2025-02-18 03:53:02,786 - INFO - Successfully initialized Gemini model
+2025-02-18 03:53:02,786 - INFO - Waiting for user input...
+2025-02-18 03:54:00,932 - INFO - Sending prompt to Gemini
+2025-02-18 03:54:47,310 - INFO - Received response from Gemini
+2025-02-18 03:54:47,311 - INFO - Processing response...
+2025-02-18 03:55:01,286 - WARNING - Errors occurred during execution:   error: subprocess-exited-with-error
+  
+  × Preparing metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [21 lines of output]
+      pyproject.toml: line 7: using '[tool.sip.metadata]' to specify the project metadata is deprecated and will be removed in SIP v7.0.0, use '[project]' instead
+      Querying qmake about your Qt installation...
+      Traceback (most recent call last):
+        File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+        File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 178, in prepare_metadata_for_build_wheel
+          whl_basename = backend.build_wheel(metadata_directory, config_settings)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/private/var/folders/3k/6vzcgmgn3d55mkymjbxs0x2h0000gn/T/pip-build-env-ft87ng1n/overlay/lib/python3.11/site-packages/sipbuild/api.py", line 28, in build_wheel
+          project = AbstractProject.bootstrap('wheel',
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/private/var/folders/3k/6vzcgmgn3d55mkymjbxs0x2h0000gn/T/pip-build-env-ft87ng1n/overlay/lib/python3.11/site-packages/sipbuild/abstract_project.py", line 74, in bootstrap
+          project.setup(pyproject, tool, tool_description)
+        File "/private/var/folders/3k/6vzcgmgn3d55mkymjbxs0x2h0000gn/T/pip-build-env-ft87ng1n/overlay/lib/python3.11/site-packages/sipbuild/project.py", line 645, in setup
+          self.update(tool)
+        File "/private/var/folders/3k/6vzcgmgn3d55mkymjbxs0x2h0000gn/T/pip-install-rwb5wt2y/pyqt5_92c0874723c547948c36f0c5aa46f09a/project.py", line 165, in update
+          raise UserException(
+      sipbuild.exceptions.UserException
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/train_rl.py", line 95, in <module>
+    train(num_episodes=5)
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/train_rl.py", line 54, in train
+    loss = criterion(predicted_Q[0][move_index].unsqueeze(0), torch.tensor([Q]))
+                     ~~~~~~~~~~~~~~^^^^^^^^^^^^
+IndexError: index 9822 is out of bounds for dimension 0 with size 4672
+Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/chess_gui.py", line 207, in <module>
+    game = ChessGame()
+           ^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/chess_gui.py", line 200, in __init__
+    self.chessboard = ChessBoard(self)
+                      ^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/chess_gui.py", line 74, in __init__
+    self.agent = RLAgent(model_path="models/best_model.pth")  # Load the trained model
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/chess_rl/rl_agent.py", line 27, in __init__
+    self.model.load_state_dict(torch.load(model_path))
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'models/best_model.pth'
+
+2025-02-18 03:55:21,613 - INFO - Sending prompt to Gemini
+2025-02-18 03:55:54,530 - INFO - Received response from Gemini
+2025-02-18 03:55:54,531 - INFO - Processing response...
+2025-02-18 04:07:24,927 - INFO - Starting project generator
+2025-02-18 04:07:24,927 - INFO - Successfully initialized Gemini model
+2025-02-18 04:07:24,927 - INFO - Waiting for user input...
+2025-02-18 04:10:21,148 - INFO - Starting project generator
+2025-02-18 04:10:21,148 - INFO - Successfully initialized Gemini model
+2025-02-18 04:10:21,148 - INFO - Waiting for user input...
+2025-02-18 04:10:29,878 - INFO - Sending prompt to Gemini
+2025-02-18 04:11:00,841 - INFO - Received response from Gemini
+2025-02-18 04:11:00,842 - INFO - Processing response...
+2025-02-18 04:11:06,777 - WARNING - Errors occurred during execution:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  1282    0  1282    0     0   2994      0 --:--:-- --:--:-- --:--:--  3016
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  7  940k    7 69223    0     0  68575      0  0:00:14  0:00:01  0:00:13 68810
+100  940k  100  940k    0     0   636k      0  0:00:01  0:00:01 --:--:--  637k
+
+2025-02-18 04:13:19,358 - INFO - Sending prompt to Gemini
+2025-02-18 04:13:43,775 - INFO - Received response from Gemini
+2025-02-18 04:13:43,776 - INFO - Processing response...
+2025-02-18 04:13:43,778 - ERROR - Error in main loop: [Errno 2] No such file or directory: '/Users/krisanusarkar/Documents/ML/unt/chess_game/assets/images/chess_game/assets/images'
+2025-02-18 04:13:43,778 - INFO - Attempting to recover by starting new chat
+2025-02-18 04:13:45,081 - INFO - Successfully recovered and received new response
+2025-02-18 04:13:45,081 - INFO - Sending prompt to Gemini
+2025-02-18 04:14:09,862 - INFO - Received response from Gemini
+2025-02-18 04:14:09,864 - INFO - Processing response...
+2025-02-18 04:14:13,697 - INFO - Command execution completed successfully
+2025-02-18 04:14:59,801 - INFO - Sending prompt to Gemini
+2025-02-18 04:15:11,302 - INFO - Received response from Gemini
+2025-02-18 04:15:11,304 - INFO - Processing response...
+2025-02-18 04:16:35,620 - INFO - Starting project generator
+2025-02-18 04:16:35,620 - INFO - Successfully initialized Gemini model
+2025-02-18 04:16:35,620 - INFO - Waiting for user input...
+2025-02-18 04:18:06,896 - INFO - Sending prompt to Gemini
+2025-02-18 04:18:28,930 - INFO - Received response from Gemini
+2025-02-18 04:18:28,930 - INFO - Processing response...
+2025-02-18 04:20:33,380 - WARNING - Errors occurred during execution: ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+coqui-tts-trainer 0.2.2 requires tensorboard>=2.17.0, but you have tensorboard 2.15.2 which is incompatible.
+torchaudio 2.6.0 requires torch==2.6.0, but you have torch 2.2.1 which is incompatible.
+
+  0%|          | 0/9912422 [00:00<?, ?it/s]
+  0%|          | 32768/9912422 [00:00<00:54, 180324.43it/s]
+  1%|          | 65536/9912422 [00:00<00:55, 176096.32it/s]
+  2%|▏         | 163840/9912422 [00:00<00:30, 324281.46it/s]
+  3%|▎         | 327680/9912422 [00:00<00:18, 531990.69it/s]
+  7%|▋         | 688128/9912422 [00:00<00:09, 1001000.60it/s]
+ 14%|█▍        | 1376256/9912422 [00:01<00:04, 1860871.44it/s]
+ 22%|██▏       | 2228224/9912422 [00:01<00:02, 3153151.13it/s]
+ 29%|██▉       | 2850816/9912422 [00:01<00:01, 3807247.90it/s]
+ 37%|███▋      | 3670016/9912422 [00:01<00:01, 4829893.94it/s]
+ 45%|████▍     | 4423680/9912422 [00:01<00:01, 5471418.70it/s]
+ 52%|█████▏    | 5111808/9912422 [00:01<00:00, 5810191.12it/s]
+ 58%|█████▊    | 5767168/9912422 [00:01<00:00, 5758509.64it/s]
+ 66%|██████▌   | 6520832/9912422 [00:01<00:00, 5320467.91it/s]
+ 75%|███████▌  | 7471104/9912422 [00:02<00:00, 6333456.49it/s]
+ 82%|████████▏ | 8159232/9912422 [00:02<00:00, 5211212.79it/s]
+ 88%|████████▊ | 8749056/9912422 [00:02<00:00, 5141995.36it/s]
+ 96%|█████████▌| 9469952/9912422 [00:02<00:00, 5636280.82it/s]
+100%|██████████| 9912422/9912422 [00:02<00:00, 3846890.83it/s]
+
+  0%|          | 0/28881 [00:00<?, ?it/s]
+100%|██████████| 28881/28881 [00:00<00:00, 137668.28it/s]
+100%|██████████| 28881/28881 [00:00<00:00, 137561.34it/s]
+
+  0%|          | 0/1648877 [00:00<?, ?it/s]
+  2%|▏         | 32768/1648877 [00:00<00:09, 163597.94it/s]
+  4%|▍         | 65536/1648877 [00:00<00:09, 161566.16it/s]
+ 10%|▉         | 163840/1648877 [00:00<00:04, 309028.86it/s]
+ 20%|█▉        | 327680/1648877 [00:00<00:02, 506235.92it/s]
+ 38%|███▊      | 622592/1648877 [00:01<00:01, 855089.57it/s]
+ 74%|███████▎  | 1212416/1648877 [00:01<00:00, 1556289.59it/s]
+100%|██████████| 1648877/1648877 [00:01<00:00, 1292286.11it/s]
+
+  0%|          | 0/4542 [00:00<?, ?it/s]
+100%|██████████| 4542/4542 [00:00<00:00, 1078861.07it/s]
+Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/mnist_gan/main.py", line 36, in <module>
+    train(generator, discriminator, train_loader, epochs, latent_dim, device, sample_interval)
+  File "/Users/krisanusarkar/Documents/ML/unt/mnist_gan/train.py", line 70, in train
+    save_images(gen_imgs, epoch)
+  File "/Users/krisanusarkar/Documents/ML/unt/mnist_gan/utils.py", line 34, in save_images
+    plt.subplot(4, 4, i + 1)  # Assuming batch size is 16
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/matplotlib/pyplot.py", line 1440, in subplot
+    key = SubplotSpec._from_subplot_args(fig, args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/matplotlib/gridspec.py", line 599, in _from_subplot_args
+    raise ValueError(
+ValueError: num must be an integer with 1 <= num <= 16, not 17
+
+2025-02-18 04:21:04,531 - INFO - Sending prompt to Gemini
+2025-02-18 04:21:09,416 - INFO - Received response from Gemini
+2025-02-18 04:21:09,416 - INFO - Processing response...
+2025-02-18 04:42:10,793 - WARNING - Errors occurred during execution: Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 132, in _main
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/multiprocessing/reductions.py", line 514, in rebuild_storage_filename
+    storage = torch.UntypedStorage._new_shared_filename_cpu(manager, handle, size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No such file or directory
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 132, in _main
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/multiprocessing/reductions.py", line 514, in rebuild_storage_filename
+    storage = torch.UntypedStorage._new_shared_filename_cpu(manager, handle, size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No such file or directory
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 132, in _main
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/multiprocessing/reductions.py", line 514, in rebuild_storage_filename
+    storage = torch.UntypedStorage._new_shared_filename_cpu(manager, handle, size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No such file or directory
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/spawn.py", line 132, in _main
+    self = reduction.pickle.load(from_parent)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/multiprocessing/reductions.py", line 514, in rebuild_storage_filename
+    storage = torch.UntypedStorage._new_shared_filename_cpu(manager, handle, size)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No such file or directory
+Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/connection.py", line 440, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/multiprocessing/connection.py", line 947, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 89655) exited unexpectedly with exit code 1. Details are lost due to multiprocessing. Rerunning with num_workers=0 may give better error trace.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/mnist_gan/main.py", line 36, in <module>
+    train(generator, discriminator, train_loader, epochs, latent_dim, device, sample_interval)
+  File "/Users/krisanusarkar/Documents/ML/unt/mnist_gan/train.py", line 20, in train
+    for i, (imgs, _) in enumerate(train_loader):
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/venv_name/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1146, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 89655) exited unexpectedly
+libc++abi: terminating due to uncaught exception of type std::__1::system_error: No such file or directory
+
+2025-02-18 04:51:53,859 - INFO - Sending prompt to Gemini
+2025-02-18 04:52:03,568 - INFO - Received response from Gemini
+2025-02-18 04:52:03,568 - INFO - Processing response...
+2025-02-19 03:00:47,411 - INFO - Starting project generator
+2025-02-19 03:00:47,412 - INFO - Successfully initialized Gemini model
+2025-02-19 03:00:47,412 - INFO - Waiting for user input...
+2025-02-19 03:01:47,709 - INFO - Sending prompt to Gemini
+2025-02-19 03:01:52,540 - INFO - Received response from Gemini
+2025-02-19 03:01:52,540 - INFO - Processing response...
+2025-02-19 03:01:54,148 - INFO - Command execution completed successfully
+2025-02-19 03:02:07,256 - INFO - Sending prompt to Gemini
+2025-02-19 03:02:08,430 - INFO - Received response from Gemini
+2025-02-19 03:02:08,431 - INFO - Processing response...
+2025-02-19 03:02:08,509 - INFO - Command execution completed successfully
+2025-02-19 03:02:42,978 - INFO - Sending prompt to Gemini
+2025-02-19 03:02:45,206 - INFO - Received response from Gemini
+2025-02-19 03:02:45,207 - INFO - Processing response...
+2025-02-19 03:02:45,220 - INFO - Command execution completed successfully
+2025-02-19 07:11:53,611 - INFO - Starting project generator
+2025-02-19 07:11:53,611 - INFO - Successfully initialized Gemini model
+2025-02-19 07:11:53,611 - INFO - Waiting for user input...
+2025-02-19 07:12:07,126 - INFO - Sending prompt to Gemini
+2025-02-19 07:18:10,705 - INFO - Starting project generator
+2025-02-19 07:18:10,706 - INFO - Successfully initialized Gemini model
+2025-02-19 07:18:10,706 - INFO - Waiting for user input...
+2025-02-19 07:18:59,553 - INFO - Starting project generator
+2025-02-19 07:18:59,553 - INFO - Successfully initialized Gemini model
+2025-02-19 07:18:59,554 - INFO - Waiting for user input...
+2025-02-19 08:08:48,019 - INFO - Starting project generator
+2025-02-19 08:08:48,020 - INFO - Successfully initialized Gemini model
+2025-02-19 08:08:48,020 - INFO - Sending prompt to Gemini
+2025-02-19 08:08:52,522 - INFO - Received response from Gemini
+2025-02-19 08:08:52,522 - INFO - Processing response...
+2025-02-19 08:08:54,149 - INFO - Command execution completed successfully
+2025-02-19 08:09:04,699 - INFO - Sending prompt to Gemini
+2025-02-19 08:09:05,878 - INFO - Received response from Gemini
+2025-02-19 08:09:05,879 - INFO - Processing response...
+2025-02-19 08:09:05,921 - INFO - Command execution completed successfully
+2025-02-19 08:09:30,250 - INFO - Sending prompt to Gemini
+2025-02-19 08:09:31,166 - INFO - Received response from Gemini
+2025-02-19 08:09:31,167 - INFO - Processing response...
+2025-02-19 08:09:31,168 - INFO - Command execution completed successfully
+2025-02-19 08:09:33,459 - INFO - Sending prompt to Gemini
+2025-02-19 08:09:34,646 - INFO - Received response from Gemini
+2025-02-19 08:09:34,647 - INFO - Processing response...
+2025-02-19 08:09:34,647 - INFO - Command execution completed successfully
+2025-02-19 10:19:55,374 - INFO - Starting project generator
+2025-02-19 10:19:55,375 - INFO - Successfully initialized Gemini model
+2025-02-19 10:19:55,375 - INFO - Waiting for user input...
+2025-02-19 10:20:11,380 - INFO - Sending prompt to Gemini
+2025-02-19 10:20:20,678 - INFO - Received response from Gemini
+2025-02-19 10:20:20,679 - INFO - Processing response...
+2025-02-19 10:20:20,819 - INFO - Command execution completed successfully
+2025-02-19 10:20:35,446 - INFO - Shutting down...
+2025-02-19 12:27:20,806 - INFO - Starting project generator
+2025-02-19 12:27:20,806 - INFO - Successfully initialized Gemini model
+2025-02-19 12:27:20,806 - INFO - Sending prompt to Gemini
+2025-02-19 12:27:34,920 - INFO - Received response from Gemini
+2025-02-19 12:27:34,921 - INFO - Processing response...
+2025-02-19 12:27:40,630 - WARNING - Errors occurred during execution: Traceback (most recent call last):
+  File "/Users/krisanusarkar/Documents/ML/unt/ludo/ludo_game.py", line 28, in <module>
+    dice = Dice((WIDTH // 2, HEIGHT // 2))  # Center the dice
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krisanusarkar/Documents/ML/unt/ludo/dice.py", line 9, in __init__
+    self.image = pygame.image.load("assets/dice1.png")  # Load initial dice image
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pygame.error: Unsupported image format
+
+2025-02-19 12:27:59,436 - INFO - Sending prompt to Gemini
+2025-02-19 12:28:06,885 - INFO - Received response from Gemini
+2025-02-19 12:28:06,887 - INFO - Processing response...
+2025-02-19 12:28:06,888 - ERROR - Error in main loop: [Errno 2] No such file or directory: '/Users/krisanusarkar/Documents/ML/unt/ludo/ludo/assets'
+2025-02-19 12:28:06,888 - INFO - Attempting to recover by starting new chat
+2025-02-19 12:28:15,130 - INFO - Successfully recovered and received new response
+2025-02-19 12:28:15,132 - INFO - Sending prompt to Gemini
+2025-02-19 12:28:26,593 - INFO - Received response from Gemini
+2025-02-19 12:28:26,594 - INFO - Processing response...
+2025-02-19 12:28:26,596 - ERROR - Error in main loop: [Errno 2] No such file or directory: '/Users/krisanusarkar/Documents/ML/unt/ludo/ludo/assets'
+2025-02-19 12:28:26,596 - INFO - Attempting to recover by starting new chat
+2025-02-19 12:28:36,936 - INFO - Successfully recovered and received new response
+2025-02-19 12:28:36,938 - INFO - Sending prompt to Gemini
+2025-02-19 12:28:42,283 - INFO - Received response from Gemini
+2025-02-19 12:28:42,283 - INFO - Processing response...
+2025-02-19 12:28:54,596 - INFO - Command execution completed successfully
+2025-02-19 12:29:07,390 - INFO - Shutting down...
