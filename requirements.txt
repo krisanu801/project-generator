@@ -1,0 +1,7 @@
+google-generativeai
+prompt-toolkit
+argparse
+logging
+pathlib
+requests
+subprocess
