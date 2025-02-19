@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Replace with your actual Gemini API key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or "AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or "YOURGEMINIAPIKEY"
 
 # Audio recording parameters
 CHUNK = 1024  # Size of each audio chunk
