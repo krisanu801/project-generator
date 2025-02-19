@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 def setup_genai() -> Optional[genai.GenerativeModel]:
     try:
-        genai.configure(api_key="AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ")
+        genai.configure(api_key="YOURGEMINIAPIKEY")
         model = genai.GenerativeModel("gemini-2.0-flash")
         logger.info("Successfully initialized Gemini model")
         return model
@@ -91,7 +91,7 @@ def main():
         "Only code and commands are expected along with requirements.txt "
     )
 
-    pwd = "pwd : '/Users/krisanusarkar/Documents/ML/unt'"
+    pwd = "pwd : 'paste your current folder path'"
 
     change_pwd = "changing pwd instructions: change pwd only if said in the task "
     get_pwd = "getting pwd: if prompt is just pwd  , strictly give the pwd  , nothing more nothing less"
