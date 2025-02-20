@@ -4,6 +4,10 @@ import subprocess
 import logging
 from pathlib import Path
 from typing import List, Tuple, Optional
+import threading
+import sys
+import termios
+import tty
 
 # Configure logging
 logging.basicConfig(
@@ -16,12 +20,23 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+def get_key():
+    """Capture a single key press from the user."""
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(fd)
+        key = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return key
+
 def ask_permission(question: str, required: bool = True) -> bool:
     if required:
         response = input(f"{question} (y/n): ").strip().lower()
         logger.info(f"Permission asked: {question} - Response: {response}")
         return response == 'y'
-    return True
+
 
 def create_directory(project_name: str) -> bool:
     try:
@@ -46,17 +61,37 @@ def run_command(command: str) -> str:
     try:
         logger.info(f"Executing command: {command}")
         print(command)
+        if 'python' in command :
+            if not ask_permission(f"Do you want to run this command {command}?"):
+                return None , None
         result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+        def check_for_stop():
+            """Wait for 'n' key press to terminate the process."""
+            while result.poll() is None:  # Process is still running
+                key = get_key()
+                if key.lower() == 'n':  # If 'n' is pressed
+                    print("\nStopping process...")
+                    result.terminate()
+                    break
+
+        # Run key listener in a separate thread
+        listener_thread = threading.Thread(target=check_for_stop, daemon=True)
+        listener_thread.start()
+
         # Stream output line by line
         output = ""
         for line in result.stdout:
             #logger.info(f"Command output: {line.strip()}")
             print(line.strip())
             output += line.strip() + ", "
-
-        if result.stderr:
-            logger.warning(f"Command stderr: {result.stderr.strip()}")
-        return result.stderr , output
+        _, stderr = result.communicate() 
+        result.wait() 
+        
+        stderr = stderr if stderr else ""
+        if stderr:
+            logger.warning(f"Command stderr: {stderr}")
+        return stderr , output
     except Exception as e:
         logger.error(f"Error running command '{command}': {e}")
         return str(e) , None
@@ -174,3 +209,17 @@ def final_command(text: str) -> str:
         logger.info("Project creation completed successfully")
     
     return errors
+
+if __name__ == "__main__":
+    logger.info("Starting script execution")
+    file_name = '/Users/krisanusarkar/Documents/ML/unt/codedetails3.txt'
+    try:
+        with open(file_name, 'r') as file:
+            text = file.read()
+        errors  = final_command(text)
+        print("Execution completed. Check project_creation.log for details.")
+        if errors:
+            print("Errors occurred during execution:")
+            print(errors)
+    except Exception as e:
+        logger.error(f"Script execution failed: {e}")
