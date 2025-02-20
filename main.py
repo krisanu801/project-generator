@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 from typing import Optional
-from extract_steps import final_command
+from extract_steps2 import final_command
 import google.generativeai as genai
 import os
 import argparse
@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 def setup_genai() -> Optional[genai.GenerativeModel]:
     try:
-        genai.configure(api_key="YOURGEMINIAPIKEY")
+        genai.configure(api_key="AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ")
         model = genai.GenerativeModel("gemini-2.0-flash")
         logger.info("Successfully initialized Gemini model")
         return model
@@ -67,8 +67,8 @@ def main():
         "Step-by-step terminal commands for creating files, installing dependencies, and running the project. "
         "Organize the code and commands according to steps to be easy to follow. "
         "Only code and commands are expected along with requirements.txt containing dependencies and README.md. "
-        "allowed to download necessary images from internet "
-        "whenever asked to run files run in unbuffered mode"
+        "scrap necessary images or urls from internet "
+        "only when asked to run project, run in unbuffered mode"
     )
 
     style = (
@@ -142,10 +142,7 @@ def main():
             result = ""
             chat = model.start_chat()
             
-            if history:
-                for item in history:
-                    result += f"{item.role}: {item.parts[0].text}\n"
-                prompt = prompt + result + instruction + style
+            chat.history = history
                 
             try:
                 response = chat.send_message(prompt)
