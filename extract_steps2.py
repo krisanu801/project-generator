@@ -55,7 +55,7 @@ def run_command(command: str) -> str:
             output += line.strip() + ", "
 
         if result.stderr:
-            logger.warning(f"Command stderr: {result.stderr}")
+            logger.warning(f"Command stderr: {result.stderr.strip()}")
         return result.stderr , output
     except Exception as e:
         logger.error(f"Error running command '{command}': {e}")
@@ -174,17 +174,3 @@ def final_command(text: str) -> str:
         logger.info("Project creation completed successfully")
     
     return errors
-
-if __name__ == "__main__":
-    logger.info("Starting script execution")
-    file_name = '/Users/krisanusarkar/Documents/ML/unt/codedetails3.txt'
-    try:
-        with open(file_name, 'r') as file:
-            text = file.read()
-        errors , created_directory_name = final_command(text)
-        print("Execution completed. Check project_creation.log for details.")
-        if errors:
-            print("Errors occurred during execution:")
-            print(errors)
-    except Exception as e:
-        logger.error(f"Script execution failed: {e}")
