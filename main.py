@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 def setup_genai() -> Optional[genai.GenerativeModel]:
     try:
-        genai.configure(api_key="AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ")
+        genai.configure(api_key="<YOURGEMINIAPIKEY")
         model = genai.GenerativeModel("gemini-2.0-flash")
         logger.info("Successfully initialized Gemini model")
         return model
