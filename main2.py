@@ -37,7 +37,7 @@ def initialize_genai() -> Optional[genai.GenerativeModel]:
         # Load environment variables
         load_dotenv()
         
-        api_key = "AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ"
+        api_key = "<YOURGEMINIAPIKEY>"
         if not api_key:
             log.error("GOOGLE_API_KEY environment variable not found")
             return None
