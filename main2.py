@@ -37,7 +37,7 @@ def initialize_genai() -> Optional[genai.GenerativeModel]:
         # Load environment variables
         load_dotenv()
         
-        api_key = "<YOURGEMINIAPIKEY>"
+        api_key = "AIzaSyB0pNwNtIKilIvqKmSvbN0Za291PzHHyvQ"
         if not api_key:
             log.error("GOOGLE_API_KEY environment variable not found")
             return None
@@ -141,7 +141,7 @@ class ProjectGenerator:
                 "files": [
                     {{
                         "name": "main.py",
-                        "path": "name of the directory you want it to be",
+                        "path": "path of the directory you want it to be",
                         "content": "",
                         "description": "Main application file"
                     }}
@@ -168,7 +168,7 @@ class ProjectGenerator:
         10. Logging configuration
 
         Ensure:
-        1. All paths use forward slashes
+        1. All paths use forward slashes 
         2. Leave file content empty - it will be generated separately
         3. Provide clear descriptions for each file
         """
@@ -288,8 +288,9 @@ class ProjectGenerator:
                 file_name = file_info['name']
                 file_path = base_path / file_info['path']
                 file_path.parent.mkdir(parents=True, exist_ok=True)
-                file_path = file_path / file_name
-                
+                if '.' not in Path(file_path).parts[-1]:
+                    file_path = file_path / file_name
+                    
                 # Skip binary files
                 if file_path.suffix.lower() in ['.pyc', '.pyo', '.pyd', '.so', '.dll', '.exe']:
                     log.debug(f"Skipping binary file: {file_path}")
@@ -420,8 +421,9 @@ class ProjectGenerator:
             #log.info(f"Running project from: {project_path}")
 
             prompt = f"""
-            Generate terminal commands for running the project in MacOS from: {project_data},
+            Generate terminal commands for running the project in MacOS cpu from: {project_data},
 
+            **do not create conda envirnoments   , use venv
             Return ONLY the commands, no explanations or markdown formatting.
             """
             
@@ -454,34 +456,80 @@ class ProjectGenerator:
                 console.print(f"[green]Project run successfully.[/green]")
                 console.print("\n[bold yellow]Anything you want to implement more? (Press Enter to run, or type 'no' to skip)[/bold yellow]")
                 user_input = input().strip().lower()
+                self.update_project(user_input)
+                if user_input.lower() != "no":
+                    return 
 
 
     def correct_errors(self , error):
         print(error)
         prompt = f"""
-            1.edit precreated files content to correct the errors:{error}
+            1.edit precreated files from {self.project_data}content needed to correct the errors:{error}
             in already given format to write file content
-            2.give filepath/filename as the second line of the content
-            3.edit one file at a time
-            **sample output : '''
-            ```python
-            src/main.py
-            content code
-            ```
-            '''
+            2.edit content properly remembering past commands
+            3.The response must be a valid JSON object with this structure:
+            files : [
+                {{
+                        "file_path": "path of the file along with file name",
+                        "content": " content code",
+                }}
+            ]
             
             """
-        content = self._make_genai_request(prompt)
-        content = content.strip()
-        file_pathname = None
-        if content.startswith('```') and content.endswith('```'):
-            file_pathname = content[content.find('\n')+1 :content.find('\n')+2]
-            content = content[content.find('\n')+2:content.rfind('```')].strip()
-            self._edit_files(file_path , content)
-            self.run_project(self.project_name , self.project_data)
-            
+        user_input= input("Enter your prompt: ")
+        if user_input:
+            prompt += user_input
+        response = self._make_genai_request(prompt)
+        response = response.strip()
+        if response.startswith('```json'):
+            response = response[7:]
+        if response.endswith('```'):
+            response = response[:-3]
+        response = json.loads(response)
+        print(response)
+        for file in  response['files'] :
+            file_path = file['file_path']
+            file_path = self.generated_path /self.project_name / file_path
+            content = file['content']
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+            print(f'editing {file_path}')
+            self._edit_files(file_path, content)
+        self.run_project(self.project_name, self.project_data)
 
-        
+    def update_project(self  , user_input):
+        print(user_input)
+        prompt = f"""
+            1.edit precreated files from {self.project_data}content needed to make this updates:{user_input}
+            in already given format to write file content
+            2.edit content properly remembering past commands
+            3.The response must be a valid JSON object with this structure:
+            files : [
+                {{
+                        "file_path": "path of the file along with file name",
+                        "content": " content code",
+                }}
+            ]
+            
+            """
+        user_input= input("Enter your prompt: ")
+        if user_input:
+            prompt += user_input
+        response = self._make_genai_request(prompt)
+        response = response.strip()
+        if response.startswith('```json'):
+            response = response[7:]
+        if response.endswith('```'):
+            response = response[:-3]
+        response = json.loads(response)
+        print(response)
+        for file in  response['files'] :
+            file_path = file['file_path']
+            file_path = self.generated_path /self.project_name / file_path
+            content = file['content']
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+            print(f'editing {file_path}')
+            self._edit_files(file_path, content)
+        self.run_project(self.project_name, self.project_data)
 
 
 
@@ -526,7 +574,7 @@ def generate(
             
             if user_input == "" or user_input == "yes":
                 log.info(f"Running project from: {project_path}")
-                error , output = generator.run_project(name , project_data)
+                generator.run_project(name , project_data)
 
             
 
