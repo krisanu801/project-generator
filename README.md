@@ -44,7 +44,7 @@ The script provides an editable prompt interface where users can modify the gene
 ## File Structure
 ```
 project-generator/
-├── main.py                 # Main script
+├── main2.py                 # Main script
 ├── extract_steps.py        # Handles extracted commands
 ├── requirements.txt        # Dependencies
 ├── project_generator.log   # Log file
